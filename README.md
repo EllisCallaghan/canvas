@@ -1,6 +1,6 @@
 # Canvas Application :rocket:
 
-Tip: Try removing lines of code to see how it works together
+Tip: Try removing lines of code to see how it works together. Go slow, and read the documentation. Also, looking at different examples online might be helpful!
 
 ### How to run this package
 
