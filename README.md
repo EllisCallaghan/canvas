@@ -1,6 +1,13 @@
 # Canvas Application :rocket:
 
-Tip: Try removing lines of code to see how it works together. Go slow, and read the documentation. Also, looking at different examples online might be helpful!
+#### Tip:
+
+Try removing lines of code to see how it works together. Go slow, and read the documentation. Also, looking at different examples online might be helpful!
+
+#### Examples:
+
+- the-canvas-boys.surge.sh
+- http://canvasg2march.surge.sh/
 
 ### How to run this package
 
@@ -23,7 +30,7 @@ In the javascript folder, there are various functionalities for the canvas appli
 
 | Done? | Component                         | Priority | Estimated Time | Actual Time |
 | ----- | --------------------------------- | :------: | :------------: | :---------: |
-|       | Read Documentation                |    M     |    2 hours     |             |
+|       | Read Documentation                |    M     |                |             |
 |       | Write down a list of requirements |    M     |                |             |
 |       | Look over the code                |    M     |                |             |
 |       | Functionality 1: Circle           |    M     |                |             |
