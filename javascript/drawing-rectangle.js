@@ -1,6 +1,7 @@
 /**********************************************
  * Drawing Rectangle Functionality
  * ==================================
+ * This class extends the PaintFunction class, which you can find in canvas-common
  ***********************************************/
 // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
 class DrawingRectangle extends PaintFunction {
@@ -15,9 +16,18 @@ class DrawingRectangle extends PaintFunction {
     this.origX = coord[0];
     this.origY = coord[1];
   }
+
   onDragging(coord, event) {
+    // Manipulating the context draft
     this.contextDraft.fillStyle = "#f44";
-    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    // Allows you to actually draw out your squares
+    this.contextDraft.clearRect(
+      0,
+      0,
+      canvasDraft.width,
+      canvasDraft.height
+    );
+    // Pass in the original x and y coordinates, followed by the new coordinates that we get for position x and y
     this.contextDraft.fillRect(
       this.origX,
       this.origY,
@@ -27,8 +37,17 @@ class DrawingRectangle extends PaintFunction {
   }
 
   onMouseMove() {}
+
+  // Committing the element to the canvas
   onMouseUp(coord) {
-    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+    this.contextDraft.clearRect(
+      0,
+      0,
+      canvasDraft.width,
+      canvasDraft.height
+    );
+    // Commit that drawing to context real
+    // Without this commit, it won't actually draw
     this.contextReal.fillRect(
       this.origX,
       this.origY,

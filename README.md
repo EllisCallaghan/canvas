@@ -1,5 +1,7 @@
 # Canvas Application :rocket:
 
+Tip: Try removing lines of code to see how it works together
+
 ### How to run this package
 
 - Make sure you clone the repository
