@@ -24,7 +24,6 @@ class DrawingLine extends PaintFunction {
     // Drawing the line here
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
-    this.draw(coord[0], coord[1]);
   }
   // Clicking and removing your mouse
   onDragging(coord, event) {
@@ -39,8 +38,6 @@ class DrawingLine extends PaintFunction {
   draw(x, y) {
     //
     this.context.lineTo(x, y);
-    this.context.moveTo(x, y);
-    this.context.closePath();
     // Draw the line onto the page
     this.context.stroke();
   }
