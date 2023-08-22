@@ -1,7 +1,3 @@
-/**********************************************
- * The Canvas
- * ==================================
- ***********************************************/
 
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext("2d");
@@ -49,7 +45,16 @@ $("#canvas-draft").mouseenter(function (e) {
 /** # Class (all classes will have these methods) #
 /*  ====================== */
 class PaintFunction {
-  constructor() {}
+  constructor() {
+    
+    document.getElementById('color-picker').addEventListener("change",(e) =>{
+      this.color = e.target.value
+      console.log(this.color)
+    
+      
+    })
+    
+  }
   onMouseDown() {}
   onDragging() {}
   onMouseMove() {}

@@ -1,10 +1,5 @@
-/**********************************************
- * Drawing Line Functionality
- * ==================================
- * This class extends the PaintFunction class, which you can find in canvas-common
- * Remember, order matters
- ***********************************************/
-class DrawingLine extends PaintFunction {
+
+class Erase extends PaintFunction {
   // This class extends the PaintFunction class
   // You are only passing one instance here
 
@@ -16,12 +11,11 @@ class DrawingLine extends PaintFunction {
   // On mouse down, ensure that the pen has these features
   onMouseDown(coord, event) {
     // Fill in the color
-    this.context.strokeStyle = this.color;
-    
+    this.context.strokeStyle = "#fff";
     // Kind of line
     this.context.lineJoin = "round";
     // Width of line
-    this.context.lineWidth = 5;
+    this.context.lineWidth = 15;
     // Drawing the line here
     this.context.beginPath();
     this.context.moveTo(coord[0], coord[1]);
@@ -38,7 +32,6 @@ class DrawingLine extends PaintFunction {
 
   draw(x, y) {
     //
-    this.context.strokeStyle = this.color;
     this.context.lineTo(x, y);
     // Draw the line onto the page
     this.context.stroke();
