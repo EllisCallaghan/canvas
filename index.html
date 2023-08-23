@@ -12,19 +12,35 @@
 			integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 			crossorigin="anonymous" />
 		<link rel="stylesheet" href="./css/style.css" />
+		<style>
+			img {
+				pointer-events: none;
+				/* doing this makes sure .elementFromPoint
+        	do not acquires the image cursor object */
+				position: absolute;
+			}
+			/* makes the cursor invisible */
+			c * {
+				cursor: none;
+			}
+		</style>
 	</head>
+
 	<body class="container overflow-scroll">
+		<img id="myimg"/>
 		<h1>Canvas Application</h1>
 		<div id="canvas-container" class="position-relative">
-			<canvas id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
+			<canvas style="border: none" id="canvas-real" class="canvas" width="1280px" height="720px"></canvas>
 			<canvas id="canvas-draft" class="canvas" width="1280px" height="720px"></canvas>
 		</div>
 		<div style="margin-top: 20px">
 			Color picker: <input type="color" id="color-picker" /> (click the draw button before picking colour)
 		</div>
 
-		<div style="margin-top: 10px" class="buttons d-flex justify-content-between">
-			<div>
+		<div
+			style="margin-top: 10px; min-width: 1280px"
+			class="buttons d-flex position-absolute justify-content-between">
+			<div class="">
 				<!-- The drawing rectangle button  -->
 				<span class="btn btn-primary fa fa-square" id="drawing-rectangle">Draw Rectangle</span>
 
@@ -48,28 +64,28 @@
 						Zoom-Out
 					</button>
 				</span>
+
+				
 			</div>
-			<div>
+			<div class="">
 				<span class="btn btn-dark fa fa-circle" id="save">save</span>
 			</div>
 		</div>
 		<script type="text/javascript">
-			function zoomin() {
-				var draft = document.getElementById('canvas-draft')
+			var cursor = document.getElementById('cursor')
+			function zoomin(e) {
 				var real = document.getElementById('canvas-real')
-				var draftWidth = draft.clientWidth
+
 				var realWidth = real.clientWidth
 
-				draft.style.width = draftWidth + 100 + 'px'
 				real.style.width = realWidth + 100 + 'px'
 			}
 
 			function zoomout() {
-				var draft = document.getElementById('canvas-draft')
 				var real = document.getElementById('canvas-real')
-				var draftWidth = draft.clientWidth
+
 				var realWidth = real.clientWidth
-				draft.style.width = draftWidth - 100 + 'px'
+
 				real.style.width = realWidth - 100 + 'px'
 			}
 		</script>
@@ -80,6 +96,11 @@
 			src="https://code.jquery.com/jquery-3.5.1.js"
 			integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
 			crossorigin="anonymous"></script>
+	
+			
+
+			
+		</script>
 		<!-- The drawing functionality  -->
 		<script src="./javascript/canvas-common.js" type="text/javascript"></script>
 		<script src="./javascript/download.js" type="text/javascript"></script>
@@ -114,5 +135,28 @@
 			})
 		</script>
 		<script src="./javascript/save.js" type="module"></script>
+		<script type="module">
+			// Import the functions you need from the SDKs you need
+			import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
+			import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
+			// TODO: Add SDKs for Firebase products that you want to use
+			// https://firebase.google.com/docs/web/setup#available-libraries
+		  
+			// Your web app's Firebase configuration
+			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+			const firebaseConfig = {
+			  apiKey: "AIzaSyDIl0LI5wHTOvRIyGHZ-hcuxj9Ug6qC1O8",
+			  authDomain: "canvas-eaa15.firebaseapp.com",
+			  projectId: "canvas-eaa15",
+			  storageBucket: "canvas-eaa15.appspot.com",
+			  messagingSenderId: "756096356791",
+			  appId: "1:756096356791:web:ecc684654a8648adc9d832",
+			  measurementId: "G-WBZF49MW10"
+			};
+		  
+			// Initialize Firebase
+			const app = initializeApp(firebaseConfig);
+			
+		  </script>
 	</body>
 </html>
